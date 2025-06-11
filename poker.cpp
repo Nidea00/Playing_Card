@@ -70,11 +70,13 @@ deck::deck(const int n_deck, const int n_joker)
 	}
 }
 
-template <typename InputIt> deck::deck(InputIt first, InputIt last){
+/*
+deck::deck(InputIt first, InputIt last){
 	for(auto it = first; it!=last; ++it){
 		container.push_back(*it) ;
 	}
 }
+*/
 
 // Information
 int deck::length() const{
@@ -147,4 +149,10 @@ void deck::sort(){
 
 void deck::shuffle(int seed){
 	std::shuffle(container.begin(), container.end(), std::mt19937(seed)) ;
+}
+
+static void toLowerCase(std::string& s){
+	for(char& c: s){
+		if('A' <= c && c <= 'Z') c += 32 ;
+	}
 }
