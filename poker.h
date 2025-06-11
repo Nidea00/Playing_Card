@@ -1,9 +1,11 @@
+#pragma once
 #include<string>
 #include<stdexcept>
 
 #include<random>
 #include<deque>
 #include<algorithm>
+
 
 #define DEFINE_ALL_REL_OPS(type)                                        \
     bool operator!=(const type& rhs) const { return !(*this ==   rhs); }\
@@ -12,11 +14,8 @@
     bool operator>=(const type& rhs) const { return !(*this  <   rhs); }
 
 
-static void toLowerCase(std::string& s){
-	for(char& c: s){
-		if('A' <= c && c <= 'Z') c += 32 ;
-	}
-}
+static void toLowerCase(std::string& s) ;
+
 static const char invalid_poker_card_message[] = "Arguments of the card is invalid." ;
 
 static const char valid_colors[] = {'c', 'd', 'h', 's'} ;
@@ -67,7 +66,7 @@ public:
 	deck(const poker_card*, const int) ; // Construct deck with an array of poker_cards.
 	deck(const int) ; // Construct n decks of poker_cards.
 	deck(const int, const int) ; // Construct n1 decks of poker_cards with n2 jokers.
-	template <typename InputIt> deck(InputIt, InputIt) ;
+	//template <typename InputIt> deck(InputIt, InputIt) ;
 	
 	int length() const; // Return how many poker card in the container.
 	bool empty() const; // Return true if the deck is empty, false otherwise.
